@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+<title> Contact </title>
+<link rel="stylesheet" href="Untitled-2.css">
+<script src="https://kit.fontawesome.com/cdd8fdab6c.js" crossorigin="anonymous"></script>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<header class="header"> 
+    <a href="#" class="logo">"Hello There"</a>
+    <i class="bx bx-menu" id="menu-icon"></i>
+    <nav class="navbar">
+        <a href="#" class="active">Contact</a>
+        <a href="profile.html">Portfolio</a>
+        <a href="home.html">Home</a>
+        <a href="images.html">Image</a> 
+        
+    
+    </nav>
+</header>
+
+
+<body>
+
+
+<div class="container">
+
+    <div class=" animation-area">
+        <ul class ="box-area">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        </ul>
+      </div>
+
+
+<form onsubmit="sendEmail(); reset(); return false; ">
+    
+<h3>GET  IN TOUCH</h3>
+<input type="text" id="name" placeholder = "your name" required>
+<input type="email" id="email" placeholder = "email id" required>
+<input type="text" id="phone" placeholder = "phone no." required>
+<textarea id="message" rows="4" placeholder="How can we help you"></textarea>
+<button type="submit">send </button>
+</form>
+
+</div>
+
+<script src=" https://smtpjs.com/v3/smtp.js"></script>
+
+<script>
+function sendEmail() {
+    Email.send({
+        Host: "smtp.elasticemail.com",
+        Username: "codingcotton@gmail.com",
+        Password: "55A3240F4A469F0972B5574D7170DF4F3688",
+        To: 'codingcotton@gmail.com',
+        From: "codingcotton@gmail.com",
+        Subject: "New contact form Enquiry",
+        Body: "Name: " + document.getElementById("name").value +
+            "<br> Email:" + document.getElementById("email").value +
+            "<br> Phone no:" + document.getElementById("phone").value +
+            "<br> Message:" + document.getElementById("message").value
+    }).then(
+        message => {
+            console.log("Email send response:", message);
+            if (message === 'OK') {
+                alert("Email sent successfully!");
+            } else {
+                throw new Error('Error in sending email: ' + message);
+            }
+        }
+    ).catch(error => {
+        console.error("Email sending error:", error);
+        alert("Error: " + error.message);
+    });
+}
+
+</script>
+
+<script src="your-script.js" async defer></script>
+
+<div class="bottom-container">
+    <h3>want to tell me how to improve</h3>
+    <p>Click the button below to go to another page and take a short servay :</p>
+    <button onclick="window.location.href='Lab06survey_andersonAA.html'">thank you for your time</button>
+</div>
+
+</body>
+
+
+
+
+</html>
+
+
+
+
+
